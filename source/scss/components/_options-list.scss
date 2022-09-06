@@ -1,0 +1,303 @@
+.options-list {
+  display: flex;
+  flex-direction: column;
+  grid-gap: clamp(10px, 3.472vw, 50px);
+
+  &__item {
+    display: grid;
+    grid-gap: clamp(20px, 3.472vw, 50px);
+    align-items: stretch;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    ul {
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      grid-gap: 2px;
+      list-style: initial;
+      margin-left: 15px;
+    }
+
+    li {
+      list-style: initial;
+    }
+
+    &--single {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding: clamp(80px, 11.111vw, 160px) 20px;
+      border-radius: clamp(25px, 4.167vw, 60px);
+
+      .options-list__content {
+        text-align: center;
+        border: none;
+        max-width: clamp(300px, 52.083vw, 750px);
+        margin: 0 auto;
+        padding: 0;
+      }
+    }
+
+    &--double {
+      grid-template-columns: repeat(2, 1fr);
+
+      .options-list__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 20px clamp(15px, 4.851vw, 65px);
+        grid-gap: 20px;
+      }
+
+      @include small-tablet() {
+        grid-template-columns: 100%;
+      }
+
+      @include mobile {
+        text-align: center;
+      }
+    }
+
+    &--triple {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto auto;
+
+      @include small-tablet {
+        grid-template-rows: initial;
+      }
+
+      @include mobile {
+        grid-template-columns: 100%;
+      }
+
+      .options-list__content {
+        display: flex;
+        flex-direction: column;
+        grid-gap: clamp(15px, 1.493vw, 20px);
+
+        &:not(.options-list__content--full) {
+          &:first-child {
+            grid-column: 2;
+            grid-row: 1;
+          }
+
+          &:last-child {
+            grid-column: 2;
+            grid-row: 2;
+          }
+
+          @include mobile {
+            grid-column: initial !important;
+            grid-template: initial !important;
+          }
+        }
+
+        .main-title {
+          font-size: clamp(20px, 3.472vw, 50px);
+        }
+
+        @include small-tablet() {
+          text-align: center;
+        }
+      }
+    }
+
+    &--triple-reverse {
+      .has-image {
+        grid-column: 2;
+      }
+
+      .options-list__content:not(.options-list__content--full):last-child {
+        grid-column: 1;
+        grid-row: 2;
+      }
+      .options-list__content:not(.has-image){
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+
+      @include tablet {
+        grid-template-columns: 100%;
+
+        .has-image {
+          display: none;
+        }
+      }
+    }
+
+
+    &--row {
+      grid-template-columns: 100%;
+      padding: 0;
+      border-radius: clamp(25px, 4.167vw, 60px);
+
+      &:not(.border) {
+        border: none;
+
+      }
+
+      .options-list__content {
+        display: flex;
+        flex-direction: column;
+        grid-gap: 20px;
+        padding: clamp(25px, 4.167vw, 60px);
+      }
+
+      @include mobile {
+        text-align: center;
+      }
+    }
+  }
+
+  &__content {
+    padding: clamp(15px, 2.239vw, 30px) clamp(15px, 2.836vw, 38px);
+    border-radius: clamp(25px, 4.167vw, 60px);
+    border: 2px solid var(--bg-c);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    &:not(.border) {
+      border: none;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    &.has-image {
+      padding: 0;
+    }
+
+    &--full {
+      background-size: cover;
+      justify-content: center;
+      background-position: center;
+      grid-row: span 2;
+      padding: clamp(15px, 4.851vw, 65px);
+
+      @include small-tablet {
+        grid-row: initial;
+        grid-column: span 2;
+      }
+
+      @include mobile {
+        grid-column: initial;
+      }
+
+    }
+  }
+
+  &__image {
+    display: flex;
+    width: 100%;
+
+    img {
+      border-radius: clamp(25px, 4.167vw, 60px);
+      height: 100%;
+      width: 100vw;
+    }
+  }
+
+
+
+
+
+
+
+
+  ul.options-list__sublist {
+    list-style: none !important;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: clamp(20px, 3.472vw, 50px);
+
+    @include tablet {
+      grid-template-columns: 100%;
+    }
+
+    @include mobile {
+      text-align: center;
+    }
+
+    .options-list__subitem {
+      list-style: inherit;
+      display: flex;
+      flex-direction: column;
+      grid-gap: inherit;
+      align-items: stretch;
+
+      &:first-child {
+        display: grid;
+        grid-template-columns: 100%;
+
+        @include tablet {
+          grid-template-columns: repeat(2, 1fr);
+          align-items: stretch;
+          grid-gap: 0 clamp(20px, 3.472vw, 50px);
+        }
+
+        @include small-tablet {
+          grid-template-columns: 100%;
+          grid-gap: clamp(20px, 3.472vw, 50px);
+
+          .options-list__content--full {
+            grid-column: initial;
+            grid-row: initial;
+          }
+        }
+
+        .options-list__content {
+          display: flex;
+          flex-direction: column;
+          grid-gap: 30px;
+          width: 100%;
+
+          @include tablet {
+            // min-height: 450px;
+          }
+        }
+
+        .options-list__content:nth-child(1) {
+          justify-content: flex-end;
+        }
+
+        .options-list__content:nth-child(2) {
+          justify-content: center;
+        }
+      }
+
+      &:last-child {
+        @include tablet {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          align-items: stretch;
+          grid-gap: clamp(20px, 3.472vw, 50px);
+
+          .has-image {
+            grid-column: span 2;
+            width: 100%;
+
+            img, picture {
+              width: 100%;
+            }
+          }
+        }
+
+        @include small-tablet {
+          grid-template-columns: 100%;
+          grid-gap: clamp(20px, 3.472vw, 50px);
+
+          .has-image {
+            grid-column: initial;
+            width: 100%;
+          }
+        }
+
+      }
+    }
+  }
+
+}
