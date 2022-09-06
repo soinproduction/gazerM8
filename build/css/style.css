@@ -418,6 +418,7 @@ picture {
 }
 .options-list ul.options-list__sublist {
   list-style: none !important;
+  margin: 0;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-gap: clamp(20px, 3.472vw, 50px);
