@@ -435,8 +435,18 @@ picture {
   margin-bottom: min(10.49vw, 150px);
   padding: clamp(15px, 3.147vw, 45px) clamp(15px, 2.836vw, 38px);
 }
+@media (max-width: 576px) {
+  .options-list__item--quadro .options-list__content:nth-child(1) {
+    margin-bottom: 0;
+  }
+}
 .options-list__item--quadro .options-list__content:nth-child(3) {
   margin-top: calc(min(10.49vw, 150px) * -1);
+}
+@media (max-width: 576px) {
+  .options-list__item--quadro .options-list__content:nth-child(3) {
+    margin-top: 0;
+  }
 }
 .options-list__item--quadro .options-list__content .main-title {
   font-size: clamp(20px, 3.472vw, 50px);

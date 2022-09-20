@@ -198,6 +198,10 @@
         &:nth-child(1) {
           margin-bottom: Min(10.49vw, 150px);
           padding: clamp(15px, 3.147vw, 45px) clamp(15px, 2.836vw, 38px);
+
+          @include mobile {
+            margin-bottom: 0;
+          }
         }
 
         // &:nth-child(2) {
@@ -206,6 +210,9 @@
 
         &:nth-child(3) {
           margin-top: calc(Min(10.49vw, 150px) * -1);
+          @include mobile {
+            margin-top: 0;
+          }
         }
 
         // &:nth-child(4) {
