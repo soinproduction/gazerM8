@@ -3,6 +3,16 @@
   flex-direction: column;
   grid-gap: clamp(10px, 3.472vw, 50px);
 
+  &__inner {
+
+    &:not(:first-child) {
+      border-top: 2px solid var(--color-a);
+      padding-top: clamp(15px, 2.098vw, 30px);
+      margin-top: clamp(15px, 2.098vw, 30px);
+    }
+  }
+
+
   &__item {
     display: grid;
     grid-gap: clamp(20px, 3.472vw, 50px);
@@ -107,6 +117,7 @@
     &--triple-reverse {
       .has-image {
         grid-column: 2;
+        justify-content: flex-start;
       }
 
       .options-list__content:not(.options-list__content--full):last-child {
@@ -118,15 +129,122 @@
         grid-row: 1;
       }
 
+      .options-list__content-text {
+        margin: 0 clamp(30px, 4.895vw, 70px);
+        text-align: center;
+        padding:
+        clamp(30px, 4.895vw, 70px)
+        0
+        clamp(30px, 4.545vw, 65px)
+        0;
+        border-bottom: 2px solid var(--color-a);
+
+        font-family: var(--font-family);
+        font-style: normal;
+        font-weight: 700;
+        font-size: clamp(20px, 2.239vw, 30px);
+        line-height: 120%;
+        text-transform: uppercase;
+
+        color: var(--color-a);
+
+        @include tablet {
+          border: none;
+        }
+      }
+
 
       @include tablet {
         grid-template-columns: 100%;
 
         .has-image {
-          display: none;
+          grid-column: initial;
         }
       }
     }
+
+    &--quadro {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: initial;
+
+      @include small-tablet {
+        grid-template-rows: initial;
+      }
+
+      @include mobile {
+        grid-template-columns: 100%;
+      }
+
+      .options-list__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        grid-gap: clamp(15px, 1.493vw, 20px);
+
+        &-text {
+          font-family: var(--font-family);
+          font-style: normal;
+          font-weight: 700;
+          font-size: clamp(20px, 2.239vw, 30px);
+          line-height: 120%;
+          display: flex;
+          align-items: center;
+          text-transform: uppercase;
+
+          color: var(--color-a);
+        }
+
+
+        &:nth-child(1) {
+          margin-bottom: Min(10.49vw, 150px);
+          padding: clamp(15px, 3.147vw, 45px) clamp(15px, 2.836vw, 38px);
+        }
+
+        // &:nth-child(2) {
+        //   grid-column: 1;
+        // }
+
+        &:nth-child(3) {
+          margin-top: calc(Min(10.49vw, 150px) * -1);
+        }
+
+        // &:nth-child(4) {
+        //   grid-column: 2;
+        //   grid-row: initial;
+        // }
+
+
+        .main-title {
+          font-size: clamp(20px, 3.472vw, 50px);
+        }
+
+        @include small-tablet() {
+          text-align: center;
+        }
+      }
+    }
+
+    &--last {
+      display: grid;
+      grid-template-columns: repeat(2, auto);
+      align-items: center;
+      grid-gap: clamp(30px, 5.035vw, 72px);
+      max-width: 1160px;
+      margin: 0 auto;
+      width: 100%;
+
+      .first-title {
+        margin: 0;
+        padding: 0;
+        border: 0;
+      }
+
+      @include small-tablet {
+        grid-template-columns: 100%;
+        justify-items: center;
+      }
+    }
+
 
 
     &--row {
@@ -156,6 +274,9 @@
     padding: clamp(15px, 2.239vw, 30px) clamp(15px, 2.836vw, 38px);
     border-radius: clamp(25px, 4.167vw, 60px);
     border: 2px solid var(--bg-c);
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -169,6 +290,12 @@
 
     &.has-image {
       padding: 0;
+      position: relative;
+    }
+
+    &.inner-border {
+      grid-gap: 0;
+      padding: clamp(20px, 3.497vw, 50px) clamp(15px, 2.657vw, 38px) !important;
     }
 
     &--full {
@@ -193,20 +320,32 @@
   &__image {
     display: flex;
     width: 100%;
+    position: relative;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: clamp(25px, 4.167vw, 60px);
 
     img {
       border-radius: clamp(25px, 4.167vw, 60px);
       height: 100%;
       width: 100vw;
     }
+
+    &-text {
+      width: 100%;
+
+      padding: clamp(30px, 9.091vw, 130px) clamp(30px, 10.49vw, 150px);
+      font-family: var(--font-family);
+      font-style: normal;
+      font-weight: 700;
+      font-size: clamp(20px, 2.239vw, 30px);
+      line-height: 120%;
+      text-transform: uppercase;
+      color: var(--color-a);
+    }
   }
-
-
-
-
-
-
-
 
   ul.options-list__sublist {
     list-style: none !important;

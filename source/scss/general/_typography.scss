@@ -18,5 +18,27 @@
     color: var(--color-a);
   }
 
+  .first-title {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 700;
+    font-size: clamp(20px, 2.239vw, 30px);
+    padding: clamp(15px, 2.463vw, 33px) Min(13.358vw,179px);
+    line-height: 120%;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: var(--color-a);
+    border: 2px solid var(--bg-c);
+    border-radius: clamp(25px, 4.167vw, 60px);
+
+    @include mobile {
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  }
+
+
+
 }
 

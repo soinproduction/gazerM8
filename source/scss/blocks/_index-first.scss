@@ -4,6 +4,14 @@
   width: 100%;
   grid-gap: clamp(30px, 3.731vw, 50px);
 
+  p {
+    font-family: var(--font-family);
+    font-style: normal;
+    font-weight: 400;
+    font-size: clamp(16px, 1.493vw, 20px);
+    line-height: 120%;
+    color: var(--color-a);
+  }
 
   &__box {
     display: grid;
@@ -23,6 +31,34 @@
       align-items: center;
     }
 
+    &--rev {
+      grid-template-rows: 1fr !important;
+      row-gap: 40px;
+      padding:clamp(10px, 2.239vw, 30px) clamp(10px, 3.731vw, 50px) ;
+
+      .index-first__image  {
+        min-height: clamp(70px, 12.612vw, 169px);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        margin:
+        calc(clamp(10px, 2.239vw, 30px) * -1 - 2px)
+        calc(clamp(10px, 3.731vw, 50px) * -1 - 2px);
+        margin-left: 0;
+        padding: 0 20px 0 Min(9.254vw, 124px);
+        display: flex;
+        grid-row: initial;
+
+        @include small-tablet {
+          margin-left: calc(clamp(10px, 3.731vw, 50px) * -1 - 2px);
+
+          p {
+            padding: 20px;
+          }
+        }
+      }
+    }
+
   }
 
 
@@ -40,6 +76,19 @@
     @include small-tablet {
       grid-row: initial;
       margin: 0;
+      padding: 0 20px;
+    }
+
+    & > p {
+      font-family: var(--font-family);
+      font-style: normal;
+      font-weight: 700;
+      font-size: clamp(20px, 2.239vw, 30px);
+      line-height: 120%;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      color: var(--color-a);
     }
   }
 
@@ -51,13 +100,21 @@
     }
   }
 
-  p {
-    font-family: var(--font-family);
-    font-style: normal;
-    font-weight: 400;
-    font-size: clamp(16px, 1.493vw, 20px);
-    line-height: 120%;
-    color: var(--color-a);
+
+
+
+  &__content--mode {
+    p {
+      font-family: var(--font-family);
+      font-style: normal;
+      font-weight: 700;
+      font-size: clamp(20px, 2.239vw, 30px);
+      line-height: 120%;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+      color: var(--color-a);
+    }
   }
 
   &__bottom {
